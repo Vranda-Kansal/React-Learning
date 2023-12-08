@@ -1,138 +1,56 @@
-<!-- How do Broswer knows the createElement or getElementById ?
-as these all are super powers that browser already have with js engine. -->
+# npm
 
-#
+its full form is not Node package manager\
+Npm manages packages\
 
- <div id="root">
-        <!-- we are trying to inject the heading via script in our html -->
-        <script>
-            // lets create a h1 tag via createElement
-            const heading = document.createElement("h1");
-            heading.innerHTML = "Hello World from javascript";
-            //write a hello text inside the h1 tag
-            //finding where is my root..
-            //now we got the root
-            const root = document.getElementById("root");
-            root.appendChild(heading);
+# Add node packager (npm) in your app
 
-        </script>
+package.json: this is bascially the confriguation of npm\
 
- </div>
+# bundler
 
-# Now we will try to do the same using react?
+what is a bundler: a bundler helps you to bundle whole code, means cached whole code, clean whole code, compressed whole code this is the work of bundler.\
+Bundle helps to do all this so that we can deploy that in production.\
 
-How can we do that?
-For that we need the react to be in our project.
-there are 2 ways to inject react in our code
-1-> Via CDN:
-what is CDN? content delivery network which allow you to access the appilcation code in your project via link from the near by server to us.
+# parcel
 
-What are there in The CDN links? Basically these all are the JS function at last React is the JS library so after add CDN link we have basically the react code in our project.
+this is a bundler. It is package install using npm.\
 
-Till now there in nothing in our project..
-but lets write the React in our console and run React
-Wow!! something amazing comes up basically a object is printed.
-where is this coming from?
-its coming from the react we have injected earlier via CDN links and now it is available for us to use
+npm i -D parcel? why -D? because I want to use it at development time.\
 
-# Why there are two CDN links?
+^2.10.3
 
-basically first one is the core react thing
-while the other one is react library used for DOM manipulation means for DOM updation its like a bridge btm the react and browser
+Meaning of ^ means when ever a minor updation comes in the version then update it.\
+whereas ~ use to upgrade when a major updation comes into picture\
+always use ^.\
 
-# Why don't just collab them in one file?
+package-lock.json :- it keeps the record of every exact version our package.json would be same as before but our package-lock.json would take care of every minuet upgradation in version or anything of evry package which we installed.\
 
-as react does not only used for web but also for android or other prespective
-therefore they are separated.
+node-modules: contains all the code which we fetch from the npm like the parcel code.\
 
-# first element by React
+npx: npx means executing the package. means it excecuting the bundler or parcel
+npx parcel index.html\
 
- <script>
-      //just creating the h1 tag inside react this is the responsibilty of core react
-      const heading = React.createElement("h1", {}, "Hello from React");
-      //so when we went to put that element into our dom then we use ReactDOM
-      //this root is basically where all the react code will run
-      //everything we will render would be render inside inside this root
-      const root = ReactDOM.createRoot(document.getElementById("root"));
+CDN are not good way use npm i react\
 
-      root.render(heading);
-</script>
+# Parcel
 
-most important operation or heavy operation in website is
-Dom manipulation
-its the most costly thing
-
-React trying is optimize this operation so that it can be done efficiently. or do manipulation using js
-
-# const heading = React.createElement("h1", {}, "Hello from React");
-
-what is {} : This is the place where you pass attribute to ur tags. Now what are these tags? suppose our h1 should have a id :"heading" then this is the attribute.
-{id: "heading"}
-
-# console.log(heading);
-
-then this is not a html
-this is an object a react element at the end of the day
-
-# What is react element?
-
-this is nothing but a normal js object.
-
-# root.render(heading);
-
-this render method is responsible for taking the js object and convert that into html then render it on page(DOM manipulation)
-
-# how to create complex structure in react?
-
-{
-/\*
-
- <div>
-    <div>
-        <h1></h1>
-    </div>
-</div>
-*/
-}
-
-//how to create complex structure in react
-//lets see
-
-const parent = React.createElement(
-"div",
-{ id: "parent" },
-React.createElement(
-"div",
-{ id: "child" },
-React.createElement("h1", {}, "Hello from nested")
-)
-);
-console.log(parent);
-
-React element is just a js Obejct when we render then it would get converted to html before than react element is Js object
-Inside my props there is children inside that the inner tags comes in see the react element object
-
-# if two elements as sibling then or if multiple children
-
-const parent = React.createElement(
-"div",
-{ id: "parent" },
-React.createElement("div", { id: "child" }, [
-React.createElement("h1", {}, "Hello from nested"),
-React.createElement("h2", {}, "I m h2"),
-])
-);
-pass them in an array of childrens.
-if we create the tags like that using create element then it would be so messy there the jsx comes into picture.
-
-#
-
- <div id="root">
-      <h1>We are already here</h1>
-    </div>
-
-root.render() will \*replaced everything which is present in the root. like h1 gets replaced by the parent
-
-whatever there is in the root evrything will get replaced by the all we pass in the render method.
-
-React will work only in the place which you have as a root other code on top and bottom would be untouched.
+- Dev Build: development environment for u
+- Local server
+- Refreshing our page automatically (HMR)- Hot Module Replacement
+- by using file watching algorithm - C++ - whenever there is change in our file parcel will automaticallly build it again
+- parcel caching things for u - Faster builds in parcel-cache
+- Image optimization
+- Minification of file also - when we do production code
+- Bundling
+- Compress the code like in dist
+- React is fast because of the parcel or other things too
+  which makes react fast parcel doing so many things parcel also using other for his help
+- consistent Hashing
+- Code splitting
+- Differential bundling - our app can be open in different or older version of chrome then parcel would do all this for us means different bundle for differnt app
+- Diagnostic
+- Error handling
+- HTTPs hosting can also be done using parcel
+- Tree Shaking : remove unused code for u
+- Different dev and prod bundles
