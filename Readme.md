@@ -54,3 +54,34 @@ CDN are not good way use npm i react\
 - HTTPs hosting can also be done using parcel
 - Tree Shaking : remove unused code for u
 - Different dev and prod bundles
+
+# JSX
+
+- Html like stynax in js
+- jsx is not html in JS. JSX has HTML/XML like syntax
+- jsx heading is also a react element.
+- const jsxHeading = <h1 id="heading">Namaste React using JSX</h1>; (jsxHeading is also a react element like the previous one which was created by core react using react.createElement());
+- its like only a syntax so make we developer experience easy.
+- js Engine only understand ECMAscript not jsx.
+- it is not purely js.
+- JSX code is transpiled before it reaches to the js engine and that whole work is done by parcel but parcel alone is not all this for us parcel is using babel so its babel job.
+- JSX => React.createElement => ReactElement-JS object => HTMLElement(render);
+- so babel is job is to convert the JSX into React.createElement code.
+- use bracket if u write jsx in multiple lines (<h1>jsx</h1>)
+- does not return two jsx from component as u can not return 2 objects from function. so either wrap them in fragments.
+- inside {} u can write any type of javascript (super power)
+- it makes our code readable.
+
+# React component
+
+- Class Based Component: OLD
+- Functional Component: New
+
+# React Functional Component
+
+- its a normal js Function which return some jsx
+- name Component in Capital letter
+- at the end it is js fun which return some jsx so if we call that component inside render under the hood it calls the component which return jsx so in react calling a fun or compoent can done using </> like <HeadingComponent /> = HeadingConponent()
+- Component Composition - Component inside Component
+- jsx takes care of melicious attack mean while sanatize it more formely it does not blindly run anything inside {} it checks everything (So powerful attack).
+- {Title()} = <Title /> = <Title><Title />
